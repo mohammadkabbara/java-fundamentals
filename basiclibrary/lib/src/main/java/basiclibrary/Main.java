@@ -1,13 +1,20 @@
 package basiclibrary;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static basiclibrary.Library.containsDuplicates;
+
 public class Main {
     public static void main(String[] args) {
         int numRolls = 4;
-        int[] newRolls = roll(numRolls);
+        int[] newRolls =Library.roll(numRolls);
         for (int i = 0; i < numRolls; i++) {
             System.out.println(newRolls[i]);
         }
-        containsDuplicates(newRolls);
-        double average = average(newRolls);
+//        int[] newRolls = new int[0];
+        containsDuplicates (newRolls);
+        double average =Library. average(newRolls);
         System.out.println(average);
 
 
@@ -18,82 +25,35 @@ public class Main {
                 {65, 56, 55, 52, 55, 62, 57}
         };
 
-        int[] lowestAvgArr = lowestAverage(weeklyMonthTemperatures);
+        int[] lowestAvgArr = Library.lowestAverage(weeklyMonthTemperatures);
         for(int i = 0 ; i < lowestAvgArr.length ; i++){
             System.out.println(lowestAvgArr[i]);
         }
-    };
+
+//        System.out.println("\n\nLAB02\n\n");
+        Library.analyze(weeklyMonthTemperatures);
+//        System.out.println("\n\n");
+
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String winner = Library.tally(votes);
+        System.out.println(winner + " received the most votes!");
+
+    }
+
+
+
+    ;
 
 /////////////////////////////// task 1
-    public static int[] roll(int n) {
-        int min = 1;
-        int max = 6;
-
-        int[] myRolls;
-        myRolls = new int[n];
-        for (int i = 0; i < n; i++) {
-            myRolls[i] = (int) Math.floor(Math.random() * (max - min + 1) + min);
-//            System.out.println(myRolls[i]);
-        }
-
-//        System.out.println("out of method");
-        return myRolls;
-    }
-////////////////////////////////task2
-    public static boolean containsDuplicates(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] == arr[j]) {
-
-                    // if Duplicates => true
-                    System.out.println("true");
-                    return true;
-                }
-
-            }
-        }
-
-        //if not Duplicates => false
-        System.out.println("false");
-        return false;
-    }
-////////////////////////////task3
-    public static double average(int[] array) {
-        double sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum = sum + array[i];
-        }
-        return sum / array.length;
-    }
-//////////////////task 4
-
-    public static int[] lowestAverage(int[][] array) {
-        double sum = 0;
-        double avg = 0;
-        double firstSum = 0;
-        double firstAverage = 0;
-        int value = 0;
-        int[] lowestAvgArr;
-        for (int i = 0; i < array[0].length; i++) {
-            firstSum = firstSum + array[0][i];
-            firstAverage = firstSum/array[0].length;
-        }
-        double lowAvg = firstAverage;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                sum=sum+array[i][j];
-                avg=sum/array[i].length;
-
-            }
-            if(avg<lowAvg){
-                lowAvg=avg;
-                value=i;
-
-            }
-            sum=0;
-            avg=0;
-        }
-        lowestAvgArr=array[value];
-        return lowestAvgArr;
-    }
+  
 }
