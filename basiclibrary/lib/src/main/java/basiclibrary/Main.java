@@ -1,12 +1,18 @@
 package basiclibrary;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static basiclibrary.Library.containsDuplicates;
 
+import java.util.Arrays;
+
+
 public class Main {
+
     public static void main(String[] args) {
+
         int numRolls = 4;
         int[] newRolls =Library.roll(numRolls);
         for (int i = 0; i < numRolls; i++) {
@@ -17,13 +23,21 @@ public class Main {
         double average =Library. average(newRolls);
         System.out.println(average);
 
+        Library callingFunc = new Library();
 
-        int[][] weeklyMonthTemperatures = {
+
+        int[] myArray = callingFunc.roll(4);
+        System.out.println(Arrays.toString(myArray));
+        System.out.println(callingFunc.containsDuplicates(myArray));
+        System.out.println(callingFunc.average(myArray));
+
+        int [][] weeklyMonthTemperatures = {
                 {66, 64, 58, 65, 71, 57, 60},
                 {57, 65, 65, 70, 72, 65, 51},
                 {55, 54, 60, 53, 59, 57, 61},
                 {65, 56, 55, 52, 55, 62, 57}
         };
+
 
         int[] lowestAvgArr = Library.lowestAverage(weeklyMonthTemperatures);
         for(int i = 0 ; i < lowestAvgArr.length ; i++){
@@ -57,3 +71,8 @@ public class Main {
 /////////////////////////////// task 1
   
 }
+
+        System.out.println(Arrays.toString(callingFunc.lowAvg(weeklyMonthTemperatures)));
+    }
+}
+

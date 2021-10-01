@@ -3,14 +3,65 @@
  */
 package basiclibrary;
 
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+
+    public static void main(String[] args) {
+
     }
+
+
+    public int[] roll(int numRoll) {
+
+        int[] array = new int[numRoll];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (5 * Math.random()) + 1;
+        }
+        return array;
+    }
+
+    public boolean containsDuplicates(int[] inputArray) {
+        boolean value = false;
+        for (int i = 0; i < inputArray.length; i++) {
+            for (int j = i+1; j < inputArray.length; j++) {
+                if (inputArray[i] == inputArray[j]){
+                    value = true;
+                }
+            }
+        }
+        return value;
+    }
+
+    public double average(int[] inputArray) {
+        int sum = 0;
+        for (int i = 0; i < inputArray.length; i++) {
+            sum = sum + inputArray[i];
+        }
+        double avg = (double) sum / inputArray.length;
+        return avg;
+    }
+
+    public int[] lowAvg(int [][] arr) {
+        ArrayList<Double> averageCollection = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            double sum = 0;
+            for (int j = 0; j < arr[i].length; j++) {
+                sum += arr[i][j];
+            }
+            averageCollection.add(sum / arr[i].length);
+        }
+        return arr[averageCollection.indexOf(Collections.min(averageCollection))];
+    }
+
     public static int[] roll(int n) {
         int min = 1;
         int max = 6;
@@ -137,3 +188,6 @@ public class Library {
         return winner;
     }
 }
+
+}
+
