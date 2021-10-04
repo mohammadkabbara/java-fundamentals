@@ -3,7 +3,7 @@ package inheritance;
 
 import java.util.LinkedList;
 
-public class Restaurant {
+public class Restaurant extends Points{
 
     //fields for restaurant
     private String name;
@@ -46,11 +46,24 @@ public class Restaurant {
 
     public void addReview(Review review) {
         if(!reviews.contains(review)) {
-            stars += review.stars;
             reviews.add(review);
         }
+        int sum =0;
+        for (Review reviewNum : reviews) {
+            sum += reviewNum.stars;
+        }
+        stars = sum / reviews.size();
     }
-
+//    public void addReview(Review review) {
+//        if (!reviews.contains(review)) {
+//            reviews.add(review);
+//        }
+//        int sum = 0;
+//        for (Review reviewNum : reviews) {
+//            sum += reviewNum.stars;
+//        }
+//        stars = sum / reviews.size();
+//    }
 
 
     @Override
