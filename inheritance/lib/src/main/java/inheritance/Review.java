@@ -33,7 +33,7 @@ public class Review {
         return author;
     }
 
-    public double getStars() {
+    public String getStars() {
         return stars;
     }
 

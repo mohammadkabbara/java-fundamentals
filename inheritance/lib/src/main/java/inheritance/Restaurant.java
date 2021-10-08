@@ -33,11 +33,11 @@ public class Restaurant {
         return name;
     }
 
-    public double getNumOfStars() {
+    public String getNumOfStars() {
         return numOfStars;
     }
 
-    public int getPriceCategory() {
+    public String getPriceCategory() {
         return priceCategory;
     }
 
